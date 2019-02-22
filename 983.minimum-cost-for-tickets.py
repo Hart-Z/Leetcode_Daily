@@ -78,6 +78,8 @@
 #
 from collections import deque
 class Solution:
+
+    # DP1 use memo to keep track of everyday minimum
     def mincostTickets1(self, days: 'List[int]', costs: 'List[int]') -> 'int':
         memo = [0]*(days[-1]+1)
 
@@ -92,6 +94,7 @@ class Solution:
                 )
         return memo[-1]
 
+    # DP2 use two queue (7 days and 30 days) to remember the most recent minimum
     def mincostTickets(self, days: 'List[int]', costs: 'List[int]') -> 'int':
         q7 , q30 = deque() , deque()
         cost = 0
